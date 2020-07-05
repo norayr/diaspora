@@ -1,6 +1,0 @@
-
-
-
-all:
-			cd build && voc -s ../dps/diaspora/src/diasporadb.Mod
-			cd build && voc -s ../dps/diaspora/src/diasporaPost.Mod
