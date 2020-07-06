@@ -103,7 +103,7 @@ BEGIN
   REPEAT
     e := text.Get(L, i);
     IF e # NIL THEN
-      tags0 := findTagsInString(e.obj(StringList.TString).str);
+      tags0 := findTagsInString(e.obj(StringList.TString).str^);
       tags.AppendList(tags0, tags);
     END;
     INC(i);

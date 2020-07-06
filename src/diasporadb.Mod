@@ -25,13 +25,13 @@ BEGIN
   REPEAT
     e := strs.Get(L, i);
     IF e # NIL THEN
-      l := Strings.Length(e.obj(StringList.TString).str) - 1;
+      l := Strings.Length(e.obj(StringList.TString).str^) - 1;
       IF e.obj(StringList.TString).str[l] = '+' THEN
-        Strings.Delete(e.obj(StringList.TString).str, l, 1);
-        strutils.RemoveRightChars(e.obj(StringList.TString).str, ' ');
-        l := Strings.Length(e.obj(StringList.TString).str) - 1 ;
-        IF (e.obj(StringList.TString).str[l-1] = '\') & (e.obj(StringList.TString).str[l] = 'r') THEN
-          Strings.Delete(e.obj(StringList.TString).str, l-1, 2);
+        Strings.Delete(e.obj(StringList.TString).str^, l, 1);
+        strutils.RemoveRightChars(e.obj(StringList.TString).str^, ' ');
+        l := Strings.Length(e.obj(StringList.TString).str^) - 1 ;
+        IF (e.obj(StringList.TString).str^[l-1] = '\') & (e.obj(StringList.TString).str^[l] = 'r') THEN
+          Strings.Delete(e.obj(StringList.TString).str^, l-1, 2);
         END;
       END; (* clean *)
     END;
@@ -99,7 +99,7 @@ BEGIN
   strs.Delete(strs, strs.Count-1);
   strs.Delete(strs, strs.Count-1);
   e := strs.Get(strs, strs.Count-1);
-  Strings.Assign(e.obj(StringList.TString).str, time);
+  Strings.Assign(e.obj(StringList.TString).str^, time);
   (* now check if the line contains dot, then cut everything from right till the dot included *)
   p := strutils.Pos('.', time, 0);
   IF p # 0 THEN
