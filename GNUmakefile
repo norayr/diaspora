@@ -6,8 +6,8 @@ current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 
 all:
 			mkdir -p $(BUILD)
-			cd $(BUILD) && voc -s $(mkfile_dir_path)/src/diasporadb.Mod
-			cd $(BUILD) && voc -s $(mkfile_dir_path)/src/diasporaPost.Mod
+			cd $(BUILD) && $(VOC) -s $(mkfile_dir_path)/src/diasporadb.Mod
+			cd $(BUILD) && $(VOC) -s $(mkfile_dir_path)/src/diasporaPost.Mod
 
 clean:
 			if [ -d "$(BUILD)" ]; then rm -rf $(BUILD); fi
